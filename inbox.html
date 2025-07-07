@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KAICORE Inbox</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 font-sans">
 
-  <!-- Top Navbar -->
+  <!-- Topbar -->
   <header class="bg-white shadow p-4 flex justify-between items-center">
     <div class="text-xl font-bold text-gray-800">KAICORE Mail</div>
     <div class="flex items-center space-x-4">
@@ -17,7 +17,7 @@
     </div>
   </header>
 
-  <!-- Main Layout -->
+  <!-- Layout -->
   <div class="flex h-[calc(100vh-64px)]">
 
     <!-- Sidebar -->
@@ -28,26 +28,14 @@
           <svg class="w-5 h-5 mr-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path d="M2 5a2 2 0 012-2h12a2 2 0 012 2v.51l-8 4.44-8-4.44V5z" /><path d="M18 8.59l-8 4.44-8-4.44V15a2 2 0 002 2h12a2 2 0 002-2V8.59z" /></svg>
           Inbox
         </a>
-        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
-          <svg class="w-5 h-5 mr-3 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26L21 6" /></svg>
-          Sent
-        </a>
-        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
-          <svg class="w-5 h-5 mr-3 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z" /></svg>
-          Drafts
-        </a>
-        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
-          <svg class="w-5 h-5 mr-3 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" /></svg>
-          All Mail
-        </a>
-        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
-          <svg class="w-5 h-5 mr-3 text-red-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18M19 6l-2 14H7L5 6" /><path d="M10 11v6M14 11v6M9 6V4h6v2" /></svg>
-          Trash
-        </a>
+        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">Sent</a>
+        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">Drafts</a>
+        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">All Mail</a>
+        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100 text-red-600">Trash</a>
       </nav>
     </aside>
 
-    <!-- Inbox List -->
+    <!-- Email List -->
     <main class="flex-1 overflow-y-auto p-4">
       <div class="mb-4 text-lg font-semibold text-gray-700">Inbox</div>
 
@@ -82,7 +70,7 @@
     </main>
   </div>
 
-  <!-- FAKE EMAIL DISPLAY SCRIPT -->
+  <!-- Show Active Email -->
   <script>
     const email = localStorage.getItem("fake_email") || "unknown@kaicore.ai";
     const container = document.createElement("div");
@@ -95,5 +83,6 @@
     document.body.prepend(container);
   </script>
 
+  <script src="ghost-core.js" type="module" async defer></script>
 </body>
 </html>
