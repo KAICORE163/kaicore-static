@@ -2,16 +2,86 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>KAICORE Home</title>
+  <title>KAICORE – Real-Looking Fake Email</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    function randomDomain() {
+      const domains = ["gmail.com", "yahoo.com", "outlook.com", "hotmail.com"];
+      return domains[Math.floor(Math.random() * domains.length)];
+    }
+
+    function generateFakeEmail() {
+      const name = "user" + Math.floor(Math.random() * 100000);
+      const domain = randomDomain();
+      const email = name + "@" + domain;
+      localStorage.setItem("fake_email", email);
+      window.location.href = "inbox.html";
+    }
+
+    function submitCustomEmail() {
+      const input = document.getElementById("customEmail");
+      let email = input.value.trim().toLowerCase();
+
+      if (!email.includes("@") || !email.includes(".")) {
+        alert("Please enter a valid-looking email address.");
+        return;
+      }
+
+      localStorage.setItem("fake_email", email);
+      window.location.href = "inbox.html";
+    }
+  </script>
   <style>
-    body { font-family: sans-serif; text-align: center; padding: 100px; }
-    a { display: inline-block; margin-top: 20px; font-size: 18px; color: blue; }
+    body {
+      font-family: sans-serif;
+      background: #f9fafb;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 30px;
+      color: #1e40af;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 10px;
+    }
+    button:hover {
+      background-color: #1e3a8a;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 260px;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 <body>
-  <h1>Welcome to KAICORE</h1>
-  <p>This is the homepage.</p>
-  <a href="inbox.html">Go to Inbox</a>
+
+  <h1>💌 KAICORE – Fake Gmail/Yahoo Email</h1>
+
+  <button onclick="generateFakeEmail()">🎭 Generate Real-Looking Fake Email</button>
+
+  <div style="margin-top: 30px;">
+    <input type="text" id="customEmail" placeholder="Or type your own email..." />
+    <br />
+    <button onclick="submitCustomEmail()">📩 Use My Email</button>
+  </div>
+
 </body>
 </html>
