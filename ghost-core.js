@@ -1,6 +1,4 @@
-// ghost-core.js – KAICORE Ghost Protocol v1 (Blackhole Defense Layer)
-// Inspired by physics: black hole theory + human behavioral detection
-
+// ghost-core.js – KAICORE Ghost Protocol v1 (Safe Mode)
 (function ghostInit() {
   const startTime = performance.now();
   let moved = false, clicked = false, copyTry = false;
@@ -10,32 +8,36 @@
     /headless/, /bot/, /crawl/, /spider/, /scanner/, /python/, /phantomjs/, /curl/
   ];
 
-  function redirectBlackhole() {
-    console.warn("Ghost Protocol: Suspicious behavior. Dragging to blackhole...");
+  function redirectBlackhole(reason) {
+    console.warn("🛑 Ghost Protocol: Blocked –", reason);
     window.location.replace("blackhole.html");
   }
 
-  // Check User Agent
+  // Step 1: Check User-Agent string
   if (suspiciousAgents.some(rx => rx.test(agent))) {
-    redirectBlackhole();
+    redirectBlackhole("Suspicious user agent");
+    return;
   }
 
-  // No mouse movement = likely bot
+  // Step 2: Track basic behavior
   window.addEventListener("mousemove", () => moved = true);
   window.addEventListener("click", () => clicked = true);
   window.addEventListener("copy", () => copyTry = true);
 
-  // Timed behavior check
+  // Step 3: After delay, evaluate risk
   setTimeout(() => {
-    const tooFast = performance.now() - startTime < 100;
-    if (!moved || tooFast || copyTry || !clicked) {
-      redirectBlackhole();
+    const loadTime = performance.now() - startTime;
+    if (!moved && !clicked && copyTry && loadTime < 150) {
+      redirectBlackhole("No interaction + copy attempt");
+    } else {
+      console.log("✅ Ghost Protocol passed: Human user detected.");
     }
   }, 3500);
 
-  // Remove script from DOM after load (invisible)
+  // Step 4: Cleanup script from DOM
   const thisScript = document.currentScript;
   if (thisScript && thisScript.parentNode) {
-    setTimeout(() => thisScript.parentNode.removeChild(thisScript), 2000);
+    setTimeout(() => thisScript.parentNode.removeChild(thisScript), 1000);
   }
 })();
+
