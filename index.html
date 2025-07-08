@@ -2,31 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>KAICORE – Real-Looking Fake Email</title>
+  <title>KAICORE – Gmail-Like Fake Email Generator</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Create Gmail-looking fake email addresses with working inbox. Temporary inbox expires in 3 hours. KAICORE powered." />
   <script>
-    function randomDomain() {
-      const domains = ["gmail.com", "yahoo.com", "outlook.com", "hotmail.com"];
-      return domains[Math.floor(Math.random() * domains.length)];
-    }
-
     function generateFakeEmail() {
       const name = "user" + Math.floor(Math.random() * 100000);
-      const domain = randomDomain();
-      const email = name + "@" + domain;
+      const email = name + "@gmail.@kaicore.ai";
       localStorage.setItem("fake_email", email);
       window.location.href = "inbox.html";
     }
 
     function submitCustomEmail() {
       const input = document.getElementById("customEmail");
-      let email = input.value.trim().toLowerCase();
+      let userInput = input.value.trim().toLowerCase();
 
-      if (!email.includes("@") || !email.includes(".")) {
-        alert("Please enter a valid-looking email address.");
+      if (!userInput.match(/^[a-z0-9._%+-]+$/)) {
+        alert("Please enter a valid username (letters/numbers only).");
         return;
       }
 
+      const email = userInput + "@gmail.@kaicore.ai";
       localStorage.setItem("fake_email", email);
       window.location.href = "inbox.html";
     }
@@ -73,16 +69,15 @@
 </head>
 <body>
 
-  <h1>💌 KAICORE – Fake Gmail/Yahoo Email</h1>
+  <h1>📫 KAICORE – Real-Looking Fake Gmail Generator</h1>
 
-  <button onclick="generateFakeEmail()">🎭 Generate Real-Looking Fake Email</button>
+  <button onclick="generateFakeEmail()">🎭 Generate Gmail-Like Fake Email</button>
 
   <div style="margin-top: 30px;">
-    <input type="text" id="customEmail" placeholder="Or type your own email..." />
+    <input type="text" id="customEmail" placeholder="Enter custom name (e.g. a5 or z9)" />
     <br />
-    <button onclick="submitCustomEmail()">📩 Use My Email</button>
+    <button onclick="submitCustomEmail()">📩 Use My Custom Email</button>
   </div>
 
-  <script src="ghost-core.js" type="module" async defer></script>
 </body>
 </html>
