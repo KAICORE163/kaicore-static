@@ -2,82 +2,83 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>KAICORE – Gmail-Like Fake Email Generator</title>
+  <title>KAICORE – Temporary Gmail-style Email</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Create Gmail-looking fake email addresses with working inbox. Temporary inbox expires in 3 hours. KAICORE powered." />
+  <meta name="description" content="Free temporary email that looks like Gmail. Get OTPs, sign up privately. Fast & secure. USA/Canada optimized." />
+  <link rel="icon" href="https://www.google.com/s2/favicons?domain=gmail.com" />
   <script>
-    function generateFakeEmail() {
-      const name = "user" + Math.floor(Math.random() * 100000);
-      const email = name + "@gmail.@kaicore.ai";
-      localStorage.setItem("fake_email", email);
+    function generateEmail() {
+      const name = "user" + Math.floor(10000 + Math.random() * 89999);
+      const fakeEmail = name + "@gmail.com";
+      const realEmail = name + "@kaicore.ai";
+
+      localStorage.setItem("display_email", fakeEmail);
+      localStorage.setItem("real_email", realEmail);
       window.location.href = "inbox.html";
     }
 
-    function submitCustomEmail() {
+    function useCustomEmail() {
       const input = document.getElementById("customEmail");
-      let userInput = input.value.trim().toLowerCase();
-
-      if (!userInput.match(/^[a-z0-9._%+-]+$/)) {
-        alert("Please enter a valid username (letters/numbers only).");
+      const custom = input.value.trim().toLowerCase();
+      if (!custom.includes("@") || !custom.includes(".")) {
+        alert("Invalid email format.");
         return;
       }
 
-      const email = userInput + "@gmail.@kaicore.ai";
-      localStorage.setItem("fake_email", email);
+      // Logic: real email is always @kaicore.ai
+      const fakeEmail = custom;
+      const realEmail = custom.split("@")[0] + "@kaicore.ai";
+
+      localStorage.setItem("display_email", fakeEmail);
+      localStorage.setItem("real_email", realEmail);
       window.location.href = "inbox.html";
     }
   </script>
   <style>
     body {
-      font-family: sans-serif;
+      font-family: Arial, sans-serif;
       background: #f9fafb;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      padding: 20px;
+      min-height: 100vh;
+      padding: 30px;
     }
     h1 {
       font-size: 28px;
-      margin-bottom: 30px;
-      color: #1e40af;
+      margin-bottom: 20px;
+      color: #1a73e8;
     }
-    button {
-      padding: 12px 24px;
-      font-size: 18px;
-      background-color: #2563eb;
-      color: white;
-      border: none;
+    input, button {
+      padding: 12px;
+      font-size: 16px;
+      margin: 8px;
       border-radius: 8px;
-      cursor: pointer;
-      margin: 10px;
-    }
-    button:hover {
-      background-color: #1e3a8a;
     }
     input {
-      padding: 10px;
-      font-size: 16px;
       width: 260px;
-      margin-top: 10px;
-      border-radius: 6px;
       border: 1px solid #ccc;
-      margin-bottom: 10px;
+    }
+    button {
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1558b0;
     }
   </style>
 </head>
 <body>
 
-  <h1>📫 KAICORE – Real-Looking Fake Gmail Generator</h1>
+  <h1>💌 Get Your Temporary Gmail</h1>
+  <button onclick="generateEmail()">🎭 Generate Fake Gmail Email</button>
 
-  <button onclick="generateFakeEmail()">🎭 Generate Gmail-Like Fake Email</button>
-
-  <div style="margin-top: 30px;">
-    <input type="text" id="customEmail" placeholder="Enter custom name (e.g. a5 or z9)" />
-    <br />
-    <button onclick="submitCustomEmail()">📩 Use My Custom Email</button>
-  </div>
+  <p style="margin: 20px 0;">or use your own:</p>
+  <input type="text" id="customEmail" placeholder="e.g. a1@gmail.com" />
+  <button onclick="useCustomEmail()">📩 Use My Email</button>
 
 </body>
 </html>
