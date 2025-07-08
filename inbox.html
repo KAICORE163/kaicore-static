@@ -1,88 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>KAICORE Inbox</title>
+  <meta charset="UTF-8">
+  <title>Your Inbox – KAICORE</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    const fake = localStorage.getItem("display_email") || "unknown@gmail.com";
+    const real = localStorage.getItem("real_email") || "unknown@kaicore.ai";
+
+    window.onload = () => {
+      document.getElementById("display").innerText = fake;
+      document.getElementById("real").innerText = real;
+    };
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f1f5f9;
+      padding: 30px;
+    }
+    h1 { color: #1a73e8; }
+    .email-box {
+      background: white;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .note {
+      font-size: 14px;
+      color: #888;
+    }
+  </style>
 </head>
-<body class="bg-gray-100 font-sans">
+<body>
 
-  <!-- Topbar -->
-  <header class="bg-white shadow p-4 flex justify-between items-center">
-    <div class="text-xl font-bold text-gray-800">KAICORE Mail</div>
-    <div class="flex items-center space-x-4">
-      <input type="text" placeholder="Search mail" class="px-3 py-1 border border-gray-300 rounded-full text-sm w-64 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-      <img src="https://www.gravatar.com/avatar?d=mp" alt="Avatar" class="w-8 h-8 rounded-full" />
-    </div>
-  </header>
-
-  <!-- Layout -->
-  <div class="flex h-[calc(100vh-64px)]">
-
-    <!-- Sidebar -->
-    <aside class="w-64 bg-white p-4 border-r overflow-y-auto">
-      <button class="bg-blue-600 text-white px-4 py-2 rounded-lg w-full mb-6 hover:bg-blue-700">+ Compose</button>
-      <nav class="space-y-2 text-gray-700">
-        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100 font-medium bg-gray-200">
-          <svg class="w-5 h-5 mr-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path d="M2 5a2 2 0 012-2h12a2 2 0 012 2v.51l-8 4.44-8-4.44V5z" /><path d="M18 8.59l-8 4.44-8-4.44V15a2 2 0 002 2h12a2 2 0 002-2V8.59z" /></svg>
-          Inbox
-        </a>
-        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">Sent</a>
-        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">Drafts</a>
-        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">All Mail</a>
-        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100 text-red-600">Trash</a>
-      </nav>
-    </aside>
-
-    <!-- Email List -->
-    <main class="flex-1 overflow-y-auto p-4">
-      <div class="mb-4 text-lg font-semibold text-gray-700">Inbox</div>
-
-      <div class="space-y-2">
-        <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md border-l-4 border-blue-500 cursor-pointer">
-          <div class="flex justify-between items-center">
-            <div class="font-semibold text-gray-800">no-reply@kaicore.ai</div>
-            <div class="text-sm text-gray-500">Jul 7</div>
-          </div>
-          <div class="text-sm text-gray-700 mt-1 font-medium">Welcome to KAICORE – Activate Your Inbox</div>
-          <div class="text-xs text-gray-500 mt-1">Click the button below to activate your KAICORE inbox. This message will expire in 24 hours.</div>
-        </div>
-
-        <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md cursor-pointer">
-          <div class="flex justify-between items-center">
-            <div class="font-semibold text-gray-800">support@kaicore.ai</div>
-            <div class="text-sm text-gray-500">Jul 6</div>
-          </div>
-          <div class="text-sm text-gray-700 mt-1 font-medium">System Update: Ghost Protocol Patch Deployed</div>
-          <div class="text-xs text-gray-500 mt-1">We've deployed an update to the Ghost Protocol. Click here to review changes.</div>
-        </div>
-
-        <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md cursor-pointer">
-          <div class="flex justify-between items-center">
-            <div class="font-semibold text-gray-800">admin@kaicore.ai</div>
-            <div class="text-sm text-gray-500">Jul 6</div>
-          </div>
-          <div class="text-sm text-gray-700 mt-1 font-medium">Your inbox is live and receiving emails</div>
-          <div class="text-xs text-gray-500 mt-1">You can now receive messages via your temporary KAICORE email address.</div>
-        </div>
-      </div>
-    </main>
+  <h1>📥 KAICORE Inbox</h1>
+  <div class="email-box">
+    <p><strong>Fake Gmail:</strong> <span id="display"></span></p>
+    <p><strong>Real Receiver:</strong> <span id="real"></span></p>
+    <p class="note">🕒 Emails sent to the real address above will appear here (3-hour expiry).</p>
   </div>
 
-  <!-- Show Active Email -->
-  <script>
-    const email = localStorage.getItem("fake_email") || "unknown@kaicore.ai";
-    const container = document.createElement("div");
-    container.style.background = "#1e40af";
-    container.style.color = "#fff";
-    container.style.padding = "10px 20px";
-    container.style.fontSize = "16px";
-    container.style.fontWeight = "bold";
-    container.innerText = "Your KAICORE Email: " + email;
-    document.body.prepend(container);
-  </script>
-
-  <script src="ghost-core.js" type="module" async defer></script>
 </body>
 </html>
