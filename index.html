@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
+  <!-- Google Analytics tag -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0Z68PGWCJT"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -10,11 +10,16 @@
     gtag('config', 'G-0Z68PGWCJT');
   </script>
 
+  <!-- ✅ Google AdSense tag -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6898881540816888"
+     crossorigin="anonymous"></script>
+
   <meta charset="UTF-8" />
   <title>KAICORE – Temporary Gmail-style Email</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Free temporary email that looks like Gmail. Get OTPs, sign up privately. Fast & secure. USA/Canada optimized." />
   <link rel="icon" href="https://www.google.com/s2/favicons?domain=gmail.com" />
+
   <script>
     function generateEmail() {
       const name = "user" + Math.floor(10000 + Math.random() * 89999);
@@ -34,7 +39,6 @@
         return;
       }
 
-      // Logic: real email is always @kaicore.ai
       const fakeEmail = custom;
       const realEmail = custom.split("@")[0] + "@kaicore.ai";
 
@@ -43,6 +47,7 @@
       window.location.href = "inbox.html";
     }
   </script>
+
   <style>
     body {
       font-family: Arial, sans-serif;
