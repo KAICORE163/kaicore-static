@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google Analytics tag -->
+  <meta charset="UTF-8" />
+  <title>KAICORE – Temporary Gmail-style Email</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Free temporary email that looks like Gmail. Get OTPs, sign up privately. Fast & secure. USA/Canada optimized." />
+  <link rel="icon" href="https://www.google.com/s2/favicons?domain=gmail.com" />
+
+  <!-- ✅ Google Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0Z68PGWCJT"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -10,15 +16,9 @@
     gtag('config', 'G-0Z68PGWCJT');
   </script>
 
-  <!-- ✅ Google AdSense tag -->
+  <!-- ✅ Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6898881540816888"
      crossorigin="anonymous"></script>
-
-  <meta charset="UTF-8" />
-  <title>KAICORE – Temporary Gmail-style Email</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Free temporary email that looks like Gmail. Get OTPs, sign up privately. Fast & secure. USA/Canada optimized." />
-  <link rel="icon" href="https://www.google.com/s2/favicons?domain=gmail.com" />
 
   <script>
     function generateEmail() {
@@ -83,6 +83,20 @@
     button:hover {
       background-color: #1558b0;
     }
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+    }
+    footer a {
+      margin: 0 10px;
+      color: #1a73e8;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -94,6 +108,11 @@
   <input type="text" id="customEmail" placeholder="e.g. a1@gmail.com" />
   <button onclick="useCustomEmail()">📩 Use My Email</button>
 
+  <footer>
+    <a href="about.html">About</a> |
+    <a href="privacy.html">Privacy</a> |
+    <a href="terms.html">Terms</a>
+  </footer>
+
 </body>
 </html>
-
