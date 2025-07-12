@@ -7,6 +7,40 @@
   <meta name="description" content="Free temporary email that looks like Gmail. Get OTPs, sign up privately. Fast & secure. USA/Canada optimized." />
   <link rel="icon" href="https://www.google.com/s2/favicons?domain=gmail.com" />
 
+  <!-- 🤖 KAICORE Auto SEO Bot -->
+  <script>
+  (function() {
+    const title = document.title || "KAICORE – Privacy Tools";
+    const desc = document.querySelector('meta[name="description"]');
+    const metaDescription = desc ? desc.content : "Access secure tools like temporary email, VPN, and IP cloaker. Fast. Free. No signup.";
+
+    const canonical = document.createElement("link");
+    canonical.rel = "canonical";
+    canonical.href = window.location.href;
+    document.head.appendChild(canonical);
+
+    const ogTitle = document.createElement("meta");
+    ogTitle.setAttribute("property", "og:title");
+    ogTitle.content = title;
+    document.head.appendChild(ogTitle);
+
+    const ogDesc = document.createElement("meta");
+    ogDesc.setAttribute("property", "og:description");
+    ogDesc.content = metaDescription;
+    document.head.appendChild(ogDesc);
+
+    const ogUrl = document.createElement("meta");
+    ogUrl.setAttribute("property", "og:url");
+    ogUrl.content = window.location.href;
+    document.head.appendChild(ogUrl);
+
+    const ogSite = document.createElement("meta");
+    ogSite.setAttribute("property", "og:site_name");
+    ogSite.content = "KAICORE";
+    document.head.appendChild(ogSite);
+  })();
+  </script>
+
   <!-- ✅ Google Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0Z68PGWCJT"></script>
   <script>
@@ -25,7 +59,6 @@
       const name = "user" + Math.floor(10000 + Math.random() * 89999);
       const fakeEmail = name + "@gmail.com";
       const realEmail = name + "@kaicore.ai";
-
       localStorage.setItem("display_email", fakeEmail);
       localStorage.setItem("real_email", realEmail);
       window.location.href = "inbox.html";
@@ -41,7 +74,6 @@
 
       const fakeEmail = custom;
       const realEmail = custom.split("@")[0] + "@kaicore.ai";
-
       localStorage.setItem("display_email", fakeEmail);
       localStorage.setItem("real_email", realEmail);
       window.location.href = "inbox.html";
@@ -127,4 +159,3 @@
 
 </body>
 </html>
-
