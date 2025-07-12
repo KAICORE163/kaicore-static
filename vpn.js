@@ -74,4 +74,20 @@ function startTimers() {
       document.getElementById("disconnect-btn").click();
     }
   }, 1000);
+}function switchSkin() {
+  const theme = document.getElementById("skin-select").value;
+  const root = document.documentElement;
+  const body = document.body;
+
+  if (theme === "dark") {
+    body.style.backgroundColor = "#0d1117";
+    body.style.color = "#c9d1d9";
+  } else if (theme === "neon") {
+    body.style.backgroundColor = "#000";
+    body.style.color = "#39ff14";
+  } else if (theme === "hacker") {
+    body.style.backgroundColor = "#001f00";
+    body.style.color = "#00ff88";
+  }
 }
+
