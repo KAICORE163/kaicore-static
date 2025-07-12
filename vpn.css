@@ -18,6 +18,7 @@ body {
 
 h1 {
   color: #58a6ff;
+  font-size: 26px;
 }
 
 .panel {
@@ -30,18 +31,23 @@ h1 {
 
 .buttons {
   margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 button {
   background-color: #238636;
   color: white;
   border: none;
-  padding: 10px 20px;
-  margin: 5px;
+  padding: 10px 16px;
+  margin: 6px;
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
   transition: 0.3s ease;
+  flex: 1 0 40%;
+  max-width: 180px;
 }
 
 button:disabled {
@@ -60,4 +66,29 @@ button:disabled {
   height: 90px;
   background: #0d1117;
   border-top: 1px solid #30363d;
+}
+
+/* ✅ Responsive Mobile */
+@media (max-width: 600px) {
+  body {
+    padding: 15px;
+  }
+
+  .container {
+    padding: 20px 15px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  button {
+    padding: 10px 12px;
+    margin: 6px;
+    font-size: 14px;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
 }
