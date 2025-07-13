@@ -163,4 +163,23 @@
   </script>
 
 </body>
-</html>
+</html><!-- ✅ GA4 Events: Inbox Opened -->
+<script>
+  // Track inbox page open
+  gtag('event', 'inbox_loaded', {
+    event_category: 'Inbox',
+    event_label: 'Inbox Page View',
+    value: 1
+  });
+
+  // Track number of messages loaded
+  window.addEventListener('DOMContentLoaded', () => {
+    const messageCount = document.querySelectorAll('.email-item').length;
+    gtag('event', 'inbox_email_count', {
+      event_category: 'Inbox',
+      event_label: 'Number of Emails',
+      value: messageCount
+    });
+  });
+</script>
+
