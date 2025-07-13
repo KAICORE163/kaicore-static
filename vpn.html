@@ -4,14 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>KAICORE ⚡ Internet Unlocked</title>
+  <meta name="description" content="Free VPN session with IP cloaking. Instant privacy with KAICORE. No signup." />
+
   <link rel="stylesheet" href="vpn.css" />
   <script defer src="vpn.js"></script>
 
-  <!-- Google AdSense -->
+  <!-- ✅ Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6898881540816888"
      crossorigin="anonymous"></script>
 
-  <!-- Google Analytics -->
+  <!-- ✅ Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0Z68PGWCJT"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -26,7 +28,7 @@
     const title = document.title || "KAICORE – Privacy Tools";
     const desc = document.querySelector('meta[name="description"]');
     const metaDescription = desc ? desc.content : "Access secure tools like temporary email, VPN, and IP cloaker. Fast. Free. No signup.";
-    
+
     const canonical = document.createElement("link");
     canonical.rel = "canonical";
     canonical.href = window.location.href;
@@ -89,6 +91,33 @@
       <!-- Future banner ads -->
     </div>
   </div>
-  
+
+  <!-- ✅ GA4 VPN Tracking -->
+  <script>
+    document.getElementById("connect-btn")?.addEventListener("click", () => {
+      gtag('event', 'vpn_session_start', {
+        event_category: 'VPN',
+        event_label: 'Session Started',
+        value: 1
+      });
+    });
+
+    document.getElementById("rotate-btn")?.addEventListener("click", () => {
+      gtag('event', 'vpn_ip_rotate', {
+        event_category: 'VPN',
+        event_label: 'IP Rotated',
+        value: 1
+      });
+    });
+
+    document.getElementById("disconnect-btn")?.addEventListener("click", () => {
+      gtag('event', 'vpn_disconnect', {
+        event_category: 'VPN',
+        event_label: 'Session Ended',
+        value: 1
+      });
+    });
+  </script>
+
 </body>
 </html>
