@@ -157,5 +157,33 @@
     <a href="terms.html">Terms</a>
   </footer>
 
-</body>
+</body><script>
+  // ✅ Track Email Generator button
+  document.querySelector('button[onclick="generateEmail()"]').addEventListener('click', function() {
+    gtag('event', 'generate_email', {
+      event_category: 'Email',
+      event_label: 'Random Gmail Style Email',
+      value: 1
+    });
+  });
+
+  // ✅ Track Custom Email usage
+  document.querySelector('button[onclick="useCustomEmail()"]').addEventListener('click', function() {
+    gtag('event', 'custom_email', {
+      event_category: 'Email',
+      event_label: 'User Entered Custom Email',
+      value: 1
+    });
+  });
+
+  // ✅ Track VPN Button Click
+  document.querySelector('.vpn-btn').addEventListener('click', function() {
+    gtag('event', 'vpn_click', {
+      event_category: 'VPN',
+      event_label: 'VPN Button Clicked',
+      value: 1
+    });
+  });
+</script>
+
 </html>
